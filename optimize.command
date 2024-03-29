@@ -163,5 +163,5 @@ find . -name "processed-index.txt" -delete
 # Создание файла для обозначения завершения всех оптимизаций
 touch "all-optimization-completed-index-files-removed.txt"
 echo -e "\033[32m Оптимизация завершена. \033[0m"
-echo -e "\033[32m Всего сохранено пространства: $total_size_optimized. \033[0m"
+echo -e "\033[32m Всего сохранено пространства: $total_size_optimized MB. \033[0m"
 exit 0
