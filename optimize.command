@@ -4,8 +4,8 @@ clear; # Legacy
 
 echo -e "\033[1mМагистр\033[0m, приветствую, готов к оптимизации видео"
 echo -e "\033[90mКодек: \033[4m  -c:v libx264 -crf 25 -tune zerolatency \033[0m"
-butt_temp=$(ioreg -n AppleSmartBattery | grep -E '"Temperature"' | awk '{print $7}')
-butt_tempvirt=$(ioreg -n AppleSmartBattery | grep -E '"VirtualTemperature"' | awk '{print $7}')
+butt_temp=$(ioreg -n AppleSmartBattery | awk -F'"Temperature" = ' 'NF > 1 {print $2}' | awk '{print $1}')
+butt_tempvirt=$(ioreg -n AppleSmartBattery | awk -F'"VirtualTemperature" = ' 'NF > 1 {print $2}' | awk '{print $1}')
 echo -e "\033[90mТекущая температура батареи: Сенсор1: $butt_temp, Сенсор2:$butt_tempvirt \033[0m"
 
 total_size_optimized=0
